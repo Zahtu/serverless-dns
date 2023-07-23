@@ -69,6 +69,7 @@ env:
   FLY_PROD_APP: "udns"
   FLY_CFG: "fly.toml"
   FLY_TLS_CFG: "fly.tls.toml"
+  FLY_REGION: ${{ vars.FLY_REGION }}
   FLY_DEPLOY_WAIT_SEC: "300"
 
 jobs:
@@ -88,6 +89,7 @@ jobs:
           echo "FLY_TOML=${FLY_CFG}" >> $GITHUB_ENV
           echo "FLY_DEPLOY_STRAT=${FLY_DEPLOY_STRAT:-rolling}" >> $GITHUB_ENV
           echo "FLY_BUILDER_TYPE=${FLY_BUILDER_TYPE:-remote-only}" >> $GITHUB_ENV
+          echo "FLY_REGION=${FLY_REGION:-ams}" >> $GITHUB_ENV
         shell: bash
 
       - name: 🔐👨‍🚒 FlyTLS via dispatch?
@@ -144,6 +146,7 @@ jobs:
             --config ${{ env.FLY_TOML }}
             --strategy ${{ env.FLY_DEPLOY_STRAT }}
             --wait-timeout ${{ env.FLY_DEPLOY_WAIT_SEC }}
+            --region ${{ env.FLY_REGION }}
             --auto-confirm
             --no-cache
             --verbose
