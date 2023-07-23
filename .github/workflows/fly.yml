@@ -1,25 +1,25 @@
 name: 🪂 Fly
 
 on:
-  push:
-    branches:
-      - "main"
-    tags:
-      - "v*"
-    paths-ignore:
-      - ".github/**"
-      - "!.github/workflows/fly.yml"
-      - ".env.example"
-      - ".eslintrc.cjs"
-      - ".prettierignore"
-      - "wrangler.toml"
-      - "README.md"
-      - "wrangler.toml"
-      - ".vscode/*"
-      - ".husky/*"
-      - ".prettierrc.json"
-      - "LICENSE"
-      - "run"
+  # push:
+  #   branches:
+  #     - "main"
+  #   tags:
+  #     - "v*"
+  #   paths-ignore:
+  #     - ".github/**"
+  #     - "!.github/workflows/fly.yml"
+  #     - ".env.example"
+  #     - ".eslintrc.cjs"
+  #     - ".prettierignore"
+  #     - "wrangler.toml"
+  #     - "README.md"
+  #     - "wrangler.toml"
+  #     - ".vscode/*"
+  #     - ".husky/*"
+  #     - ".prettierrc.json"
+  #     - "LICENSE"
+  #     - "run"
   workflow_dispatch:
     inputs:
       git-ref:
