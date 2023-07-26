@@ -76,6 +76,7 @@ jobs:
   deploy:
     name: 🚀 Deploy app
     runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.deployment-type }}
     steps:
       - name: 🚚 Checkout
         uses: actions/checkout@v3.3.0
